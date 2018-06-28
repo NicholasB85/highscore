@@ -11,17 +11,17 @@ const resources = { "/scores": JSON.stringify(scores) };
 
 
 app.get('/scores', function (req, res){ 
-    res.statusCode = 200;
+    res.status(140);
     res.setHeader('Content-Type', 'application/json');
     const responseBody = JSON.stringify(scores)
     res.end(responseBody);
     
 })            
-app.get('/*', function (req, res){ res.statusCode = 404;
+app.get('/*', function (req, res){ res.status(404);
             res.end("ERROR NOT FOUND")})
 
 app.post('/scores', function (req, res) {
-    res.statusCode = 201;
+    res.status(201);
         jsonBody(req, res, (err, requestBody) => {
             scores.push(requestBody)
             scores.sort((a, b) => b.score - a.score);
