@@ -11,7 +11,7 @@ const resources = { "/scores": JSON.stringify(scores) };
 
 
 app.get('/scores', function (req, res){ 
-    res.status(140);
+    res.status(200);
     res.setHeader('Content-Type', 'application/json');
     const responseBody = JSON.stringify(scores)
     res.end(responseBody);
